@@ -1,0 +1,83 @@
+/* Button base styles */
+.button {
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Sizes */
+.xlarge {
+  font-size: 18px;
+  line-height: 24px;
+  gap: 12px;
+  padding: 16px 16px;
+  border-radius: 10px;
+}
+.large {
+  font-size: 16px;
+  line-height: 24px;
+  gap: 8px;
+  padding: 12px 12px;
+  border-radius: 8px;
+}
+.default {
+  font-size: 14px;
+  line-height: 16px;
+  gap: 8px;
+  padding: 12px 12px;
+  border-radius: 6px;
+}
+.small {
+  font-size: 14px;
+  line-height: 16px;
+  gap: 4px;
+  padding: 8px 8px;
+  border-radius: 4px;
+}
+.xsmall {
+  font-size: 12px;
+  line-height: 12px;
+  gap: 4px;
+  padding: 8px 8px;
+  border-radius: 4px;
+}
+/* Types */
+.solid {
+  background-color: var(--button-color);
+  color: white;
+}
+.outline {
+  background-color: white;
+  border: 1px solid var(--button-color);
+  color: var(--button-color);
+}
+.text-button {
+  background: none;
+  color: var(--button-color);
+}
+.text-only {
+  background: none;
+  border: none;
+  color: var(--button-color);
+}
+/* Colors */
+.primary {
+  --button-color: #1375E4;
+}
+.grey {
+  --button-color: #475569;
+}
+.success {
+  --button-color: #059669;
+}
+.danger {
+  --button-color: #DC2626;
+}
+.warning {
+  --button-color: #D97706;
+}
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
