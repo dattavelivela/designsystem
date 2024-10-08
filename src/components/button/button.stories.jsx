@@ -47,7 +47,7 @@ const sizes = ['xlarge', 'large', 'default', 'small', 'xsmall'];
 const types = ['solid', 'outline', 'text-only'];
 const colors = ['primary', 'grey', 'success', 'danger', 'warning'];
 
-export const Pla = sizes.flatMap(size =>
+export const Playground = sizes.flatMap(size =>
   types.flatMap(type =>
     colors.map(color => {
       const storyName = `${size} ${type} ${color}`.replace(/ /g, '_');
