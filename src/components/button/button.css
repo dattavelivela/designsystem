@@ -1,5 +1,4 @@
 /* Button base styles */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .button {
@@ -10,7 +9,9 @@
   justify-content: center;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
+  background: none;
 }
+
 /* Sizes */
 .xlarge {
   font-size: 18px;
@@ -46,18 +47,18 @@
 .xsmall {
   font-size: 12px;
   line-height: 12px;
-  
   gap: 4px;
   padding: 8px 8px;
   border-radius: 4px;
 }
+
 /* Types */
 .solid {
   background-color: var(--button-color);
   color: white;
 }
 .outline {
-  background-color: white;
+  background-color: transparent;
   border: 1px solid var(--button-color);
   color: var(--button-color);
 }
@@ -70,6 +71,7 @@
   border: none;
   color: var(--button-color);
 }
+
 /* Colors */
 .primary {
   --button-color: #1375E4;
@@ -89,4 +91,17 @@
 .disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+/* Icon positioning */
+.icon-left,
+.icon-right {
+  display: inline-flex;
+}
+
+/* No top, bottom, left, right margins/padding for icons */
+.icon-left > *,
+.icon-right > * {
+  margin: 0;
+  padding: 0;
 }

@@ -1,13 +1,25 @@
+// Button.stories.js
+
 import React from 'react';
 import Button from './button';
+import * as Icons from 'react-icons/fa'; // Import all icons from FontAwesome as an example
 
-export default {
+const availableIcons = Object.keys(Icons).reduce((acc, icon) => {
+  acc[icon] = React.createElement(Icons[icon]);
+  return acc;
+}, { None: null });
+
+const ButtonStory = {
   title: 'Components/Button',
   component: Button,
   argTypes: {
     label: {
       control: 'text',
       defaultValue: 'Button',
+    },
+    toggleLabel: {
+      control: 'boolean',
+      defaultValue: true,
     },
     size: {
       control: 'select',
@@ -28,16 +40,30 @@ export default {
       control: 'boolean',
       defaultValue: false,
     },
+    toggleLeftIcon: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    toggleRightIcon: {
+      control: 'boolean',
+      defaultValue: false,
+    },
     iconLeft: {
-      control: 'text',
-      defaultValue: '',  // Assuming no icon by default
+      control: 'select',
+      options: Object.keys(availableIcons),
+      if: { arg: 'toggleLeftIcon', truthy: true },
+      mapping: availableIcons,
     },
     iconRight: {
-      control: 'text',
-      defaultValue: '',  // Assuming no icon by default
+      control: 'select',
+      options: Object.keys(availableIcons),
+      if: { arg: 'toggleRightIcon', truthy: true },
+      mapping: availableIcons,
     },
   }
 };
+
+export default ButtonStory;
 
 // Template to apply args
 const Template = (args) => <Button {...args} />;
@@ -54,11 +80,14 @@ export const Playground = sizes.flatMap(size =>
       const story = Template.bind({});
       story.args = {
         label: 'Button',
+        toggleLabel: true,
         size,
         type,
         color,
-        iconLeft: '👈',
-        iconRight: '👉',
+        toggleLeftIcon: false,
+        toggleRightIcon: false,
+        iconLeft: 'None',
+        iconRight: 'None',
         disabled: false
       };
       return { [storyName]: story };
